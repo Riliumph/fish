@@ -6,4 +6,4 @@ function fish_user_key_bindings
   bind \e\e\[A 'cd ../; commandline -f repaint'
   bind \e\e\[B 'cd (find ./ -maxdepth 1 -mindepth 1 -type d | sort -f | peco); and commandline -f repaint'
 end
-q
+
