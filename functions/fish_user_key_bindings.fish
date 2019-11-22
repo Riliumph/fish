@@ -3,4 +3,5 @@
 function fish_user_key_bindings
   bind \e\x7F 'kill-whole-line' # *
   bind \cR 'peco_history'
+  bind \e\e\[A 'cd ../; commandline -f repaint'
 end
