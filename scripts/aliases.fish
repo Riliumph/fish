@@ -2,7 +2,7 @@
 alias version='fish -v'
 
 # File & Directory
-if which trash-put >/dev/null ^&1
+if which trash-put >/dev/null ^ /dev/null
   alias rm='trash-put'
 else
   alias rm='rm -v'
@@ -22,7 +22,7 @@ alias ll='clear; and la -lhT'
 alias df='df -h'
 alias less='less -gMNRqW'
 alias printenv='printenv | sort -f'
-if which htop > /dev/null ^&1
+if which htop > /dev/null ^ /dev/null
   alias top='htop'
 end
 
