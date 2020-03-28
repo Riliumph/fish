@@ -4,5 +4,5 @@ function refresh
     echo 1
   end
   echo "Refresh fish!"
-  return true
+  return 0
 end

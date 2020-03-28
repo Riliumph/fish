@@ -3,7 +3,7 @@ function cd
   set -l dest $argv
   switch $argc
     case 0
-      if type peco > /dev/null ^&1
+      if type peco > /dev/null ^/dev/null
         set dest (find ./ -maxdepth 1 -mindepth 1 -type d | sort -f | peco)
       end
     case 1
@@ -43,7 +43,7 @@ function cd
   end
 
   ### Log history after moving
-  echo "[$OLD_PWD] -> [$PWD] result:($has_moved)"
+  # echo "[$OLD_PWD] -> [$PWD] result:($has_moved)"
   if test $has_moved -eq 0
     set -q dirprev[$MAX_DIR_HIST]
     and set -e dirprev[1]
