@@ -89,3 +89,5 @@ fish_variables
 /tags
 xcuserdata/
 
+# Fish
+config.fish
