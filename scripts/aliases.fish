@@ -1,5 +1,4 @@
 # Rarely command
-alias refresh='source $HOME/.config/fish/config.fish; and echo "Refresh fish!"'
 alias version='fish -v'
 
 # File & Directory
