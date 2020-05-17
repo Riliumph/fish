@@ -16,6 +16,7 @@ function fish_prompt --description 'Write out the prompt'
   echo -n ':'
 
   # PWD
+  set fish_color_cwd "ffff5f"
   set_color $fish_color_cwd
   echo -n (pwd)
   set_color normal
@@ -24,10 +25,12 @@ function fish_prompt --description 'Write out the prompt'
   __fish_hg_prompt
   echo
 
+  set status_face "(*'_')"
   if not test $last_status -eq 0
     set_color $fish_color_error
+    set status_face "(*;_;)"
   end
 
-  echo -n '➤ '
+  echo -n $status_face'➤ '
   set_color normal
 end
