@@ -4,6 +4,8 @@ alias version='fish -v'
 # File & Directory
 if which trash-put >/dev/null ^ /dev/null
   alias rm='trash-put'
+else if which rmtrash > /dev/null ^ /dev/null
+  alias rm='rmtrash'
 else
   alias rm='rm -v'
 end
@@ -40,6 +42,7 @@ alias untargz='tar xfvz'
 
 # abbreviation
 abbr -a cd ' cd'
+abbr -a rm ' rm'
 abbr -a fg ' fg'
 abbr -a bg ' bg'
 abbr -a git ' git'
