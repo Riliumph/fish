@@ -13,7 +13,7 @@ source $FISH_ROOT/init.fish
 
 # Pyenv
 #if test (which pyenv) ^/dev/null
-#  set --export PYENV_ROOT (which pyenv)
+#  set --export PYENV_ROOT $HOME/.config/pyenv
 #  set PATH $PATH $PYENV_ROOT/bin
 #  source (pyenv init - | psub)
 #end
