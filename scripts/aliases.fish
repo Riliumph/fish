@@ -16,9 +16,16 @@ alias link='ln -v'
 alias symlink='link -nsf'
 
 # list command
-alias ls='ls -FGx'
-alias la='ls -A'
-alias ll='clear; and la -lhT'
+if type exa > /dev/null ^&1
+  alias ls='exa -F'
+  alias la='ls -a'
+  alias ll='la -l -ghHimS'
+  alias lt='ll -T'
+else
+  alias ls='ls -FGx'
+  alias la='ls -A'
+  alias ll='clear; and la -lhT'
+end
 
 # show command
 alias df='df -h'
