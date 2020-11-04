@@ -2,7 +2,7 @@
 # item2: Preference -> Profiles -> Keys -> Left Option Key: ESC+ (Not Meta)
 function fish_user_key_bindings
   # Option-Del
-  bind \e\x7F 'kill-whole-line' # *
+  bind \e\x7F 'backward-kill-word' # *
   # Ctrl+R
   bind \cR 'peco_history'
   # Option-Up
