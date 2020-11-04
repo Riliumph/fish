@@ -25,12 +25,19 @@ function fish_prompt --description 'Write out the prompt'
   __fish_hg_prompt
   echo
 
-  set status_face "(*'_')"
-  if not test $last_status -eq 0
+  # Status Face
+  if test $last_status -eq 0
+    set face "(*'_')< "
+    echo -n $face
+    set_color $fish_color_end
+    echo -n $last_status
+  else
+    set face "(*;_;)< "
+    echo -n $face
     set_color $fish_color_error
-    set status_face "(*;_;)"
+    echo -n $last_status
   end
-
-  echo -n $status_face'➤ '
   set_color normal
+
+  echo -n ' ➤ '
 end
