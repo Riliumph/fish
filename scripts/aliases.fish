@@ -2,52 +2,52 @@
 alias version='fish -v'
 
 # File & Directory
-if which trash-put >/dev/null ^ /dev/null
-  alias rm='trash-put'
-else if which rmtrash > /dev/null ^ /dev/null
-  alias rm='rmtrash'
+if [ (which trash-put) ]
+    alias rm='trash-put'
+else if [ (which rmtrash) ]
+    alias rm='rmtrash'
 else
-  alias rm='rm -v'
+    abbr rm 'rm -v'
 end
-alias mv='mv -v'
-alias cp='cp -v'
-alias mkdirs='mkdir -p'
-alias link='ln -v'
-alias symlink='link -nsf'
+abbr mv 'mv -v'
+abbr cp 'cp -v'
+abbr mkdirs 'mkdir -p'
+abbr link 'ln -v'
+abbr symlink 'link -nsf'
 
 # list command
-if type exa > /dev/null ^&1
-  alias ls='exa -F'
-  alias la='ls -a'
-  alias ll='la -l -ghHimS'
-  alias lt='ll -T'
+if [ (type exa) ]
+    alias ls='exa -F'
+    abbr la 'ls -a'
+    abbr ll 'la -l -ghHimS'
+    abbr lt 'll -T'
 else
-  alias ls='ls -FGx'
-  alias la='ls -A'
-  alias ll='clear; and la -lhT'
+    abbr ls 'ls -FGx'
+    abbr la 'ls -A'
+    abbr ll 'clear; and la -lhT'
 end
 
 # show command
-alias df='df -h'
-alias less='less -gMNRqW'
-alias printenv='printenv | sort -f'
-if which htop > /dev/null ^ /dev/null
-  alias top='htop'
+abbr df 'df -h'
+abbr less 'less -gMNRqW'
+abbr printenv 'printenv | sort -f'
+if [ (which htop) ]
+    alias top htop
 end
 
 # patch command
-alias unpatch='patch -R'
-alias test_patch='patch --dry-run'
+abbr unpatch 'patch -R'
+abbr test_patch 'patch --dry-run'
 
 # date command
-alias today='date +%Y/%m/%d'
-alias now='date +%H:%M:%S'
+alias today 'date +%Y/%m/%d'
+alias now 'date +%H:%M:%S'
 
 # rename command
-alias targz='tar cfvz'
-alias untargz='tar xfvz'
+abbr targz 'tar cfvz'
+abbr untargz 'tar xfvz'
 
-# abbreviation
+# Don't save in history
 abbr -a cd ' cd'
 abbr -a rm ' rm'
 abbr -a fg ' fg'
