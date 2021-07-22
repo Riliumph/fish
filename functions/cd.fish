@@ -10,6 +10,7 @@ function cd -d "custom cd"
         case 1
             set dest $argv[1]
         case '*'
+            set_color $fish_color_error
             echo "too many arguments"
             return 1
     end
@@ -36,6 +37,7 @@ function cd -d "custom cd"
 
     ### Check exist path
     if [ ! -d $dest ]
+        set_color $fish_color_error
         echo "Missing: $dest"
         return 1
     end
@@ -44,6 +46,7 @@ function cd -d "custom cd"
     builtin cd $dest
     set -l cd_status $status
     if [ $cd_status -ne 0 ]
+        set_color $fish_color_error
         echo 'Failed to change directory'
         return 1
     end

@@ -29,7 +29,8 @@ function fish_prompt --description 'Write out the prompt'
     if [ $last_status -eq 0 ]
         set face "(*'_')< "
         echo -n $face
-        set_color $fish_color_end
+        set fish_color_fine green
+        set_color $fish_color_fine
         echo -n $last_status
     else
         set face "(*;_;)< "
