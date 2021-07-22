@@ -1,6 +1,3 @@
-# Rarely command
-alias version='fish -v'
-
 # File & Directory
 if [ (which trash-put) ]
     alias rm='trash-put'
