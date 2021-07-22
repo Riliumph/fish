@@ -1,13 +1,11 @@
 function cd -d "custom cd"
     set -l argc (count $argv)
     set -l dest
-    echo "arguments: $argc"
-    set trim_duplication 'awk \'!dictionary[$0]++\''
     # Check variable input
     switch $argc
         case 0
             if [ (type peco) ]
-                set dest (find ./ -maxdepth 1 -mindepth 1 -type d | sort -f | peco)
+                set dest (get_current_dirs)
             end
         case 1
             set dest $argv[1]
@@ -24,8 +22,7 @@ function cd -d "custom cd"
     ### History option
     if [ "$dest" = - ]
         if [ (type peco) ]
-            set -l delete_empty_line "sed -E '/^\$/d'"
-            set dest (dirh | string replace --regex '^.+?\/' '/' | string trim -lr | eval $trim_duplication | eval $delete_empty_line | peco)
+            set dest (get_unique_dirh)
         else
             ### Go to OLD_PWD
             if [ "$__fish_cd_direction" = next ]
@@ -38,7 +35,7 @@ function cd -d "custom cd"
     end
 
     ### Check exist path
-    if [ -e $dest -ne 0 ]
+    if [ ! -d $dest ]
         echo "Missing: $dest"
         return 1
     end
@@ -69,7 +66,7 @@ function cd -d "custom cd"
 
         set -U -q __fish_cd_direction
         and set -U __fish_cd_direction prev
+        or set -g __fish_cd_direction prev
     end
-
     return $status
 end
