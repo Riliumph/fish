@@ -39,10 +39,6 @@ end
 abbr unpatch 'patch -R'
 abbr test_patch 'patch --dry-run'
 
-# date command
-alias today 'date +%Y/%m/%d'
-alias now 'date +%H:%M:%S'
-
 # rename command
 abbr targz 'tar cfvz'
 abbr untargz 'tar xfvz'
