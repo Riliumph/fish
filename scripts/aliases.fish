@@ -1,8 +1,8 @@
 # File & Directory
 if [ (which trash-put) ]
-    alias rm='trash-put'
+    alias rm trash-put
 else if [ (which rmtrash) ]
-    alias rm='rmtrash'
+    alias rm rmtrash
 else
     abbr rm 'rm -v'
 end
@@ -14,14 +14,14 @@ abbr symlink 'link -nsf'
 
 # list command
 if [ (type exa) ]
-    alias ls='exa -F'
-    abbr la 'ls -a'
-    abbr ll 'la -l -ghHimS'
-    abbr lt 'll -T'
+    alias ls 'exa -F'
+    alias la 'ls -a'
+    alias ll 'la -l -ghHimS'
+    alias lt 'll -T'
 else
-    abbr ls 'ls -FGx'
+    abbr ls ' ls -FGx'
     abbr la 'ls -A'
-    abbr ll 'clear; and la -lhT'
+    abbr ll 'la -lhT'
 end
 
 # show command
